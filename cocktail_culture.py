@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from tabulate import tabulate
 import pygwalker as pyg
-        
+
+## API CALL
 wcapi = API(
     url="https://cocktailculture.co/",
     consumer_key="xxxxxx",
@@ -29,7 +30,7 @@ while current_page <= pages_count:
     all_page_items_json.extend(page_items_json)
     current_page = current_page + 1
 
-
+##ETL
 df = pd.json_normalize(all_page_items_json)
 df=pd.DataFrame.from_dict(all_page_items_json, orient='columns')   
 paymentdf=df[df['status']=="completed"]
@@ -96,13 +97,14 @@ Booking_Cal['Description']=Booking_Cal['Persons']
 Booking_Cal['Location']=""
 Booking_Cal=Booking_Cal.loc[:,['Subject', 'Start Date', 'Start Time', 'End Date', 'End Time', 'All Day Event', 'Description', 'Location']]
 Booking_Cal=Booking_Cal.set_index('Subject')
-Booking_Cal.to_csv('C:/Users/leest/Downloads/cccal.csv')
+Booking_Cal.to_csv('xxxxxxx')
 Booking_Cal['Start Date']=Booking_Cal['Start Date'].astype('datetime64[ns]')
 weekahead=Booking_Cal[Booking_Cal['Start Date']<=(datetime.now()+timedelta(days=7))]
 weekahead['Start Date']=weekahead['Start Date'].dt.strftime("%m/%d/%Y")
 weekahead=weekahead.drop(['End Date', 'All Day Event', 'Start Time', 'Location'],axis=1, inplace=False)
 print(tabulate(weekahead, headers = 'keys', tablefmt = 'psql'))
 
+##PLOTS
 dfpayplot=df[df['status']=="completed"]
 dfpayplot=dfpayplot.loc[:,['status', 'date_paid', 'total']]
 dfpayplot=dfpayplot[dfpayplot['date_paid']!=""]
