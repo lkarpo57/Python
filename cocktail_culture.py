@@ -1,6 +1,4 @@
-# admin
-# Cgiv7rb0&^4^fegWgGc9SA3e
-# google api AIzaSyBhfUmJeUgcHx6Js8-X2pWT0tdmC-g_kBU
+
 from woocommerce import API
 import pandas as pd
 import numpy as np
@@ -13,8 +11,8 @@ import pygwalker as pyg
         
 wcapi = API(
     url="https://cocktailculture.co/",
-    consumer_key="ck_4d935110f98cf2aee0b1c3a25fbb7cca334a966a",
-    consumer_secret="cs_9a62957dfe30de926f797c9e324bb3624de0b184",
+    consumer_key="xxxxxx",
+    consumer_secret="xxxxxxxx",
     version="wc/v1",
     timeout=30
 )
