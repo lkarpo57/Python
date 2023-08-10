@@ -11,10 +11,7 @@ import sharepy
 import requests
 import pyodbc 
 
-conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=PHLYDWHPROD;'
-                      'Database=PHLYWarehouse_Staging;'
-                      'Trusted_Connection=yes;')
+conn = pyodbc.connect('*****')
 cursor = conn.cursor()
 
 source=pd.read_excel('C:/Users/lkarpo/Downloads//TMM_Canada_Assumed_Loss_Template_2_2023.xls', sheet_name='LOSSES')
