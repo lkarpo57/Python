@@ -10,7 +10,7 @@ import numpy as np
 import os
 from datetime import datetime
 
-os.chdir('//p00cifs0369.corp.tmnas.com/DataWarehousing/LossData/Dev/TORRENT/Processing')
+os.chdir('*****')
 val = os.getcwd()
 dir_list = os.listdir(val)
 dir_list= [string for string in dir_list if string.endswith("xlsx")]    
