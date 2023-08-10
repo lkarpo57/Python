@@ -9,10 +9,7 @@ import numpy as np
 import pyodbc 
  
         
-conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=PHLYDWHPROD;'
-                      'Datacbase=PHLYWarehouse_Staging;'
-                      'Trusted_Connection=yes;')
+conn = pyodbc.connect('****')
 cursor = conn.cursor()
 sourceCP=pd.read_csv('C:/Users/lkarpo/Downloads/ClaimPayments_202301.csv')
 sourceRC=pd.read_csv('C:/Users/lkarpo/Downloads/OpenClaims_202301.csv')
